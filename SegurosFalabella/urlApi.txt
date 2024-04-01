@@ -1,0 +1,311 @@
+https://api.gael.cloud/general/public/monedas
+
+
+
+[
+  {
+    "Codigo": "UF",
+    "Nombre": "Unidad de Fomento",
+    "Valor": "35592,71"
+  },
+  {
+    "Codigo": "USD",
+    "Nombre": "Dolar Americano",
+    "Valor": "817,42"
+  },
+  {
+    "Codigo": "UTM",
+    "Nombre": "Unidad Tributaria Mensual",
+    "Valor": "55537,00"
+  },
+  {
+    "Codigo": "THB  ",
+    "Nombre": "Baht tailandes  ",
+    "Valor": "23,65"
+  },
+  {
+    "Codigo": "PAB",
+    "Nombre": "Balboa panameno",
+    "Valor": "817,42"
+  },
+  {
+    "Codigo": "VEF",
+    "Nombre": "Bolivar fuerte venezolano",
+    "Valor": "34,14"
+  },
+  {
+    "Codigo": "BOB",
+    "Nombre": "Boliviano",
+    "Valor": "119,16"
+  },
+  {
+    "Codigo": "CRC",
+    "Nombre": "Colon costarricense",
+    "Valor": "1,50"
+  },
+  {
+    "Codigo": "CZK",
+    "Nombre": "Corona Checa",
+    "Valor": "35,92"
+  },
+  {
+    "Codigo": "DKK",
+    "Nombre": "Corona Danesa",
+    "Valor": "115,90"
+  },
+  {
+    "Codigo": "ISK",
+    "Nombre": "Corona islandesa",
+    "Valor": "5,75"
+  },
+  {
+    "Codigo": "NOK",
+    "Nombre": "Corona noruega",
+    "Valor": "75,78"
+  },
+  {
+    "Codigo": "SEK",
+    "Nombre": "Corona sueca",
+    "Valor": "76,91"
+  },
+  {
+    "Codigo": "DEG",
+    "Nombre": "DEG",
+    "Valor": "1088,15"
+  },
+  {
+    "Codigo": "AED",
+    "Nombre": "Dirham de Emiratos Arabes Unidos",
+    "Valor": "222,61"
+  },
+  {
+    "Codigo": "MAD",
+    "Nombre": "Dirham Marroqui",
+    "Valor": "78,31"
+  },
+  {
+    "Codigo": "AUD",
+    "Nombre": "Dolar australiano",
+    "Valor": "539,98"
+  },
+  {
+    "Codigo": "CAD",
+    "Nombre": "Dolar canadiense",
+    "Valor": "593,49"
+  },
+  {
+    "Codigo": "BMD",
+    "Nombre": "Dolar de bermudas",
+    "Valor": "817,42"
+  },
+  {
+    "Codigo": "KYD",
+    "Nombre": "Dolar de Islas Caiman",
+    "Valor": "996,85"
+  },
+  {
+    "Codigo": "BSD ",
+    "Nombre": "Dolar de las Bahamas ",
+    "Valor": "817,42"
+  },
+  {
+    "Codigo": "FJD",
+    "Nombre": "Dolar fiyiano",
+    "Valor": "365,23"
+  },
+  {
+    "Codigo": "HKD",
+    "Nombre": "Dolar hongkones",
+    "Valor": "104,14"
+  },
+  {
+    "Codigo": "NZD",
+    "Nombre": "Dolar neozelandes",
+    "Valor": "505,42"
+  },
+  {
+    "Codigo": "SGD",
+    "Nombre": "Dolar singapurense",
+    "Valor": "604,96"
+  },
+  {
+    "Codigo": "TWD",
+    "Nombre": "Dolar taiwanes",
+    "Valor": "26,72"
+  },
+  {
+    "Codigo": "EUR",
+    "Nombre": "Euro",
+    "Valor": "862,99"
+  },
+  {
+    "Codigo": "HUF",
+    "Nombre": "Forint hungaro",
+    "Valor": "2,16"
+  },
+  {
+    "Codigo": "XPF",
+    "Nombre": "Franco de la Polinesia Francesa",
+    "Valor": "7,32"
+  },
+  {
+    "Codigo": "CHF",
+    "Nombre": "Franco suizo",
+    "Valor": "880,75"
+  },
+  {
+    "Codigo": "PYG",
+    "Nombre": "Guarani  paraguayo",
+    "Valor": "0,11"
+  },
+  {
+    "Codigo": "UAH",
+    "Nombre": "Hryvnia ucraniano",
+    "Valor": "22,35"
+  },
+  {
+    "Codigo": "RON",
+    "Nombre": "Leu rumano",
+    "Valor": "175,63"
+  },
+  {
+    "Codigo": "EGP",
+    "Nombre": "Libra egipcia",
+    "Valor": "26,45"
+  },
+  {
+    "Codigo": "GBP",
+    "Nombre": "Libra esterlina",
+    "Valor": "984,37"
+  },
+  {
+    "Codigo": "TRY",
+    "Nombre": "Nueva lira turca",
+    "Valor": "43,06"
+  },
+  {
+    "Codigo": "PEN",
+    "Nombre": "Nuevo sol peruano",
+    "Valor": "214,62"
+  },
+  {
+    "Codigo": "ARS",
+    "Nombre": "Peso argentino",
+    "Valor": "4,04"
+  },
+  {
+    "Codigo": "COP",
+    "Nombre": "Peso colombiano",
+    "Valor": "0,17"
+  },
+  {
+    "Codigo": "CUP",
+    "Nombre": "Peso cubano",
+    "Valor": "34,06"
+  },
+  {
+    "Codigo": "DOP",
+    "Nombre": "Peso de Republica Dominicana",
+    "Valor": "15,00"
+  },
+  {
+    "Codigo": "PHP",
+    "Nombre": "Peso filipino",
+    "Valor": "14,88"
+  },
+  {
+    "Codigo": "MXN",
+    "Nombre": "Peso mexicano",
+    "Valor": "43,07"
+  },
+  {
+    "Codigo": "UYU",
+    "Nombre": "Peso uruguayo",
+    "Valor": "20,88"
+  },
+  {
+    "Codigo": "GTQ",
+    "Nombre": "Quetzal guatemalteco",
+    "Valor": "104,77"
+  },
+  {
+    "Codigo": "ZAR",
+    "Nombre": "Rand sudafricano",
+    "Valor": "44,39"
+  },
+  {
+    "Codigo": "BRL",
+    "Nombre": "Real brasileno",
+    "Valor": "154,06"
+  },
+  {
+    "Codigo": "IRR",
+    "Nombre": "Rial irani",
+    "Valor": "0,02"
+  },
+  {
+    "Codigo": "SAR ",
+    "Nombre": "Rial saudita ",
+    "Valor": "217,98"
+  },
+  {
+    "Codigo": "MYR",
+    "Nombre": "Ringgit malasio",
+    "Valor": "182,42"
+  },
+  {
+    "Codigo": "QAR",
+    "Nombre": "Riyal Catari",
+    "Valor": "223,25"
+  },
+  {
+    "Codigo": "RUB",
+    "Nombre": "Rublo ruso",
+    "Valor": "10,76"
+  },
+  {
+    "Codigo": "IDR",
+    "Nombre": "Rupia de Indonesia",
+    "Valor": "0,05"
+  },
+  {
+    "Codigo": "INR",
+    "Nombre": "Rupia india",
+    "Valor": "9,90"
+  },
+  {
+    "Codigo": "PKR",
+    "Nombre": "Rupia pakistani",
+    "Valor": "2,89"
+  },
+  {
+    "Codigo": "ILS",
+    "Nombre": "Shekel israeli",
+    "Valor": "226,51"
+  },
+  {
+    "Codigo": "KZT ",
+    "Nombre": "Tenge de Kazajstan ",
+    "Valor": "1,76"
+  },
+  {
+    "Codigo": "KRW",
+    "Nombre": "Won coreano",
+    "Valor": "0,63"
+  },
+  {
+    "Codigo": "JPY",
+    "Nombre": "Yen",
+    "Valor": "6,15"
+  },
+  {
+    "Codigo": "CNY",
+    "Nombre": "Yuan",
+    "Valor": "118,40"
+  },
+  {
+    "Codigo": "PLN",
+    "Nombre": "Zloty polaco",
+    "Valor": "183,43"
+  }
+]
