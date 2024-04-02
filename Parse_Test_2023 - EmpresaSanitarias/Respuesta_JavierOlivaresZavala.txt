@@ -1,0 +1,244 @@
+1. Los atributos que se definen como protected, solo son visibles dentro de la misma clase que se definen.
+
+-----------------------------------------------------------------
+
+2. (XXX) El resultado es 9, que fue el último elemento insertado, ya que el método .Peek() de la línea 10, solo lo retorna pero no lo quita de la pila. A diferencia del evento .Pop() que si lo quita de la pila de datos.
+
+Se crea la pila stackOfNumbers con una capacidad inicial de 4 elementos.
+(No se realiza ninguna operación en este paso).
+Se agrega el elemento 10 a la pila.
+Pila: [10]
+Se agrega el elemento 12 a la pila.
+Pila: [10, 12]
+Se agrega el elemento 13 a la pila.
+Pila: [10, 12, 13]
+Se realiza una operación Peek(), que devuelve el elemento en la cima de la pila sin eliminarlo.
+Pila: [10, 12, 13]
+El valor devuelto sería 13.
+Se agrega el elemento 8 a la pila.
+Pila: [10, 12, 13, 8]
+Se realiza una operación Pop(), que elimina el elemento en la cima de la pila (8 en este caso).
+Pila: [10, 12, 13]
+Se agrega el elemento 9 a la pila.
+Pila: [10, 12, 13, 9]
+Se realiza una operación Peek(), que devuelve el elemento en la cima de la pila sin eliminarlo.
+Pila: [10, 12, 13, 9]
+El valor devuelto sería 9.
+Si se ejecuta Pop() nuevamente después de estos pasos, se eliminará el elemento en la cima de la pila, que en este caso sería 9. Por lo tanto, después de ejecutar Pop() nuevamente, la pila quedaría como sigue:
+
+Pila: [10, 12, 13]
+
+El resultado sería una pila con los elementos 10, 12 y 13, en ese orden, ya que se eliminó el elemento 9.
+
+-----------------------------------------------------------------
+
+3.
+--drop table VENTAS
+
+--#region Tablas - INICIO
+/*
+	CREATE TABLE CLIENTES
+	(
+		COD INT PRIMARY KEY IDENTITY(1,1),
+		NOMBRE VARCHAR(100)
+	)
+
+	GO
+
+	CREATE TABLE VENTAS
+	(
+		COD_VENTA INT PRIMARY KEY IDENTITY(1,1),
+		COD_CLIENTE INT,
+		MONTO DECIMAL (18,3)
+	)
+
+	GO
+
+	INSERT INTO CLIENTES VALUES 
+	('Andrés Gómez'),
+	('Maite Rojas'),
+	('Pedro Sáez'),
+	('Vicente López'),
+	('Juan Qui...'),
+	('Claudia Aranda'),
+	('Helena Soto'),
+	('Carolina Pérez'),
+	('Sergio Cauil'),
+	('Ana Miranda')
+
+	GO
+
+	INSERT INTO VENTAS VALUES 
+	(1, 132.627),
+	(3, 985.978),
+	(5, 274.381),
+	(7, 847.927),
+	(8, 561.051),
+	(1, 337.027),
+	(9, 532.272),
+	(10, 314.011),
+	(6, 946.757),
+	(1, 535.739)
+*/
+--#region Tablas - FIN
+/*
+SELECT * FROM CLIENTES
+SELECT * FROM VENTAS
+*/
+
+--a) Las ventaws superiores a 500.000
+SELECT COD_VENTA, COD_CLIENTE, MONTO
+FROM VENTAS
+WHERE MONTO > 500.000
+
+--b) La venta más alta
+SELECT MAX(MONTO) AS 'VentaMasAlta'
+FROM VENTAS
+
+--c) Total de ventas en orden descendente
+SELECT COD_VENTA, COD_CLIENTE, MONTO
+FROM VENTAS
+ORDER BY MONTO DESC
+
+--d) Total de ventas por cliente
+SELECT cli.NOMBRE, ven.COD_CLIENTE, SUM(ven.MONTO) As TotalVentas
+FROM VENTAS ven
+	INNER JOIN CLIENTES cli
+		ON cli.COD = ven.COD_CLIENTE
+GROUP BY cli.NOMBRE, ven.COD_CLIENTE
+
+--e) Los 3 clientes con ventas más altas
+SELECT TOP 3
+	cli.NOMBRE, ven.COD_CLIENTE, SUM(ven.MONTO) As TotalVentas
+FROM VENTAS ven
+	INNER JOIN CLIENTES cli
+		ON cli.COD = ven.COD_CLIENTE
+GROUP BY cli.NOMBRE, ven.COD_CLIENTE
+ORDER BY TotalVentas DESC
+
+-----------------------------------------------------------------
+
+4. No entendí exactamente la problemática o el resultado que esperan.
+-Cuando hablan de los K, se refieren a Kilómetros? (asumo que los valores corresponden a coordenadas o distancias entre un punto y otro).
+-No entiendo a que se refieren con el punto P(x,y), de todas maneras realicé algo (creo que no es lo que preguntan, pero lo envío de todas maneras)
+-Crea un método que calcule la distancia entre dos puntos P1(x1, y1) y P2(x2, y2)... (no entendí cual era el resultado esperado)
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        public struct ATM
+        {
+            public int Id { get; set; }
+            public (int, int) Location { get; set; }
+        }
+
+        private static void Main(string[] args)
+        {
+            var listOfATMs = new List<ATM>()
+            {
+                new ATM { Id = 1, Location = (0, 0) },
+                new ATM { Id = 2, Location = (0, 2) },
+                new ATM { Id = 3, Location = (1, 1) },
+                new ATM { Id = 4, Location = (1, 3) },
+                new ATM { Id = 5, Location = (5, 4) },
+                new ATM { Id = 6, Location = (2, 6) },
+                new ATM { Id = 7, Location = (3, 1) },
+                new ATM { Id = 8, Location = (3, 4) },
+                new ATM { Id = 9, Location = (4, 5) },
+                new ATM { Id = 10, Location = (7, 3) }
+            };
+
+            //Lista que retorna la diferencia entre el punto X e Y
+            foreach (var item in listOfATMs)
+            {
+                var diferenciaEntreDosPuntos = item.Location.Item1 - item.Location.Item2;
+                Console.WriteLine(item.Id + ": " + diferenciaEntreDosPuntos);
+            }
+
+            //p1: entiendo que es el elemento de la posición 1, o sea el ID=2
+            var p1 = listOfATMs.Select(x => x.Id == 2);
+
+            //p2: entiendo que es el elemento de la posición 2, o sea el ID=3
+            var p2 = listOfATMs.Select(x => x.Id == 3);
+
+            Console.WriteLine(p1);
+            Console.WriteLine(p2);
+        }
+    }
+}
+
+
+
+CHAT GPT
+
+Para desarrollar un algoritmo que retorne una lista de los K ATMs más cercanos al punto P(x, y), puedes seguir estos pasos:
+
+using System;
+using System.Collections.Generic;
+
+public class Program
+{
+    public struct ATM
+    {
+        public int id { get; set; }
+        public (int, int) location { get; set; }
+    }
+
+    public static double CalculateDistance((int, int) p1, (int, int) p2)
+    {
+        int x1 = p1.Item1;
+        int y1 = p1.Item2;
+        int x2 = p2.Item1;
+        int y2 = p2.Item2;
+
+        return Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
+    }
+
+    public static List<ATM> FindClosestATMs(List<ATM> listOfATMs, (int, int) pointP, int k)
+    {
+        List<ATM> closestATMs = new List<ATM>();
+
+        foreach (var atm in listOfATMs)
+        {
+            double distance = CalculateDistance(pointP, atm.location);
+            atm.distanceToP = distance; // Agrega la distancia al ATM
+            closestATMs.Add(atm);
+        }
+
+        closestATMs.Sort((a, b) => a.distanceToP.CompareTo(b.distanceToP));
+
+        return closestATMs.GetRange(0, Math.Min(k, closestATMs.Count));
+    }
+
+    public static void Main()
+    {
+        var listOfATMs = new List<ATM>() {
+            new ATM { id = 1, location = (0, 0) },
+            new ATM { id = 2, location = (0, 2) },
+            new ATM { id = 3, location = (1, 1) },
+            new ATM { id = 4, location = (1, 3) },
+            new ATM { id = 5, location = (5, 4) },
+            new ATM { id = 6, location = (2, 6) },
+            new ATM { id = 7, location = (3, 1) },
+            new ATM { id = 8, location = (3, 4) },
+            new ATM { id = 9, location = (4, 5) },
+            new ATM { id = 10, location = (7, 3) }
+        };
+
+        (int, int) pointP = (2, 3);
+        int k = 3;
+
+        List<ATM> closestATMs = FindClosestATMs(listOfATMs, pointP, k);
+
+        Console.WriteLine($"Los {k} ATMs más cercanos al punto P{pointP} son:");
+        foreach (var atm in closestATMs)
+        {
+            Console.WriteLine($"ID: {atm.id}, Ubicación: {atm.location}, Distancia: {atm.distanceToP}");
+        }
+    }
+}
