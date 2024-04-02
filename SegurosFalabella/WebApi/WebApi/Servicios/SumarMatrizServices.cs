@@ -11,6 +11,34 @@ namespace WebApi.Servicios
             public int valor3 { get; set; }
         }
 
+        public static string RespuestaGpt()
+        {
+            int[,] matriz = new int[,] {
+                {2, 5, 7},
+                {3, 4, 5},
+                {4, 1, 3}
+            };
+
+            int maxSuma = int.MinValue;
+
+            for (int i = 0; i <= matriz.GetLength(0) - 2; i++)
+            {
+                for (int j = 0; j <= matriz.GetLength(1) - 2; j++)
+                {
+                    int suma = matriz[i, j] + matriz[i, j + 1] +
+                               matriz[i + 1, j] + matriz[i + 1, j + 1];
+                    if (suma > maxSuma)
+                    {
+                        maxSuma = suma;
+                    }
+                }
+            }
+
+            var xxx = "El valor más alto de todas las sumas en cuadros 2x2 es: " + maxSuma;
+
+            return xxx;
+        }
+
         public static void RecorreMatriz()
         {
             var suma = RecorreMatrizA();

@@ -1,0 +1,60 @@
+Agregar un controlador para manejar la solicitud de conversión de UF a pesos chilenos:
+Dentro de tu proyecto, crea un nuevo controlador llamado ConversionController.cs en la carpeta Controllers. Aquí está el código para el controlador:
+
+csharp
+Copy code
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+namespace TuProyecto.Controllers
+{
+    [ApiController]
+    [Route("api/conversion")]
+    public class ConversionController : ControllerBase
+    {
+        private readonly HttpClient _httpClient;
+
+        public ConversionController()
+        {
+            _httpClient = new HttpClient();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ConvertirUFaPesosChilenos(double cantidadUF)
+        {
+            try
+            {
+                // Obtener el valor de la UF del día desde la API pública
+                string apiUrl = "https://api.gael.cl/general/indicadores";
+                var response = await _httpClient.GetAsync(apiUrl);
+                if (!response.IsSuccessStatusCode)
+                {
+                    return StatusCode((int)response.StatusCode, "Error al obtener el valor de la UF.");
+                }
+
+                var content = await response.Content.ReadAsStringAsync();
+                dynamic data = JsonConvert.DeserializeObject(content);
+                double valorUF = data.uf.valor;
+
+                // Calcular el equivalente en pesos chilenos
+                double equivalentePesos = cantidadUF * valorUF;
+
+                return Ok(new { CantidadUF = cantidadUF, EquivalentePesos = equivalentePesos });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
+            }
+        }
+    }
+}
+Consumir la API pública para obtener el valor de la UF del día:
+En el controlador anterior, utilizamos un cliente HTTP para hacer una solicitud GET a la API pública y obtener el valor de la UF del día.
+
+Realizar la conversión y devolver el resultado al cliente:
+Calculamos el equivalente en pesos chilenos multiplicando la cantidad de UF por el valor obtenido de la API. Luego, devolvemos una respuesta JSON con la cantidad de UF ingresada y su equivalente en pesos chilenos.
+
+Guarda todo y ejecuta tu proyecto. Puedes probar el API utilizando una herramienta como Postman o curl, enviando una solicitud GET a http://localhost:puerto/api/conversion?cantidadUF=6 donde puerto es el número de puerto en el que se está ejecutando tu aplicación. Recibirás una respuesta con el equivalente en pesos chilenos para la cantidad de UF especificada.

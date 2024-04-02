@@ -15,7 +15,9 @@ namespace WebApi.Controllers
         {
             var moneda = "UF";
 
-            var valorConvertido = ConversionServices.Conversion(cantidadUf, moneda);
+            var metConversion = new ConversionServices();
+
+            var valorConvertido = metConversion.Conversion(cantidadUf, moneda);
 
             return valorConvertido;
         }
