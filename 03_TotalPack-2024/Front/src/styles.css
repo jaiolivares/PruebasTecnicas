@@ -1,0 +1,11 @@
+table {
+  table-layout: fixed;
+}
+
+/* table {
+  overflow-x: auto;
+} */
+
+tr {
+  vertical-align: middle;
+}

@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+	<ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ttp.Arquitectura.Users.Domain\Ttp.Arquitectura.Users.Domain.csproj" />
+    <ProjectReference Include="..\Ttp.Arquitectura.Users.Repository\Ttp.Arquitectura.Users.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

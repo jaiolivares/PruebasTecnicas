@@ -1,0 +1,9 @@
+.card {
+  padding: 10px;
+  margin-block: 10px;
+  width: 100%;
+}
+
+.btn-success {
+  margin-left: 10px;
+}
