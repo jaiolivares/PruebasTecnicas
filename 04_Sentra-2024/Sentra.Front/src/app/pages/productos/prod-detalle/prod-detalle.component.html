@@ -1,0 +1,15 @@
+<div class="container">
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{ dataProducto.producto.title }}</mat-card-title>
+        <mat-card-subtitle>Categoría: {{ dataProducto.producto.category }}</mat-card-subtitle>
+        <mat-card-subtitle>Precio: {{ dataProducto.producto.price | currency }}</mat-card-subtitle>
+        <img mat-card-xl-image src="{{ dataProducto.producto.image }}" />
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      {{ dataProducto.producto.description }}
+    </mat-card-content>
+  </mat-card>
+</div>

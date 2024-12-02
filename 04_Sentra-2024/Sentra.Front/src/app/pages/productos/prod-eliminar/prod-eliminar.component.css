@@ -1,0 +1,17 @@
+.container {
+  padding: 20px;
+}
+
+mat-card-header {
+  margin-block: 10px;
+}
+
+mat-card-content {
+  margin-block: 20px;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}

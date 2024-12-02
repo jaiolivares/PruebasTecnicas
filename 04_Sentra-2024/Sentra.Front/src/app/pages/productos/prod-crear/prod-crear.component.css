@@ -1,0 +1,28 @@
+.container {
+  padding: 20px;
+}
+
+.input-small {
+  min-width: 48%;
+  max-width: 1%;
+  padding-right: 1%;
+}
+
+.input-large {
+  min-width: 100%;
+  max-width: 600px;
+}
+
+textarea{ 
+  height: 150px !important;
+}
+
+img {
+  width: 250px;
+  height: 250px;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+}
