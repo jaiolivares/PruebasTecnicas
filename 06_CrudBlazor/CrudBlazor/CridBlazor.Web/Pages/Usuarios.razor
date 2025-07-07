@@ -1,0 +1,44 @@
+﻿@page "/usuarios"
+@using CrudBlazor.Web.Interfaces
+@inject IUsuarioService UsuarioService
+
+<h1>Usuarios</h1>
+
+@code {
+
+    private List<CrudBlazor.Shared.Models.Usuario>? usuarios;
+
+    protected override async Task OnInitializedAsync()
+    {
+        usuarios = await UsuarioService.GetAllAsync();
+    }
+}
+
+@if (usuarios == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>FechaNacimiento</th>
+                <th>Activo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var usuario in usuarios)
+            {
+                <tr>
+                    <td>@usuario.Id</td>
+                    <td>@usuario.Nombre</td>
+                    <td>@usuario.FechaNacimiento.ToString("dd/MM/yyyy")</td>
+                    <td>@(usuario.Activo ? "Si" : "No")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

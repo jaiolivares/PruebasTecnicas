@@ -1,0 +1,27 @@
+﻿@code {
+    [Parameter]
+    public int DelPadreAlHijo { get; set; }
+
+    [Parameter]
+    public EventCallback<int> ValorClickHijo { get; set; }
+    private int contador = 0;
+
+    async Task IncrementarContador()
+    {
+        contador++;
+        await ValorClickHijo.InvokeAsync(contador);
+    }
+
+}
+
+
+<h2>UsuarioEmpersaAsociar Hijo</h2>
+
+<p>Valor click del Hijo: @DelPadreAlHijo</p>
+
+
+<p>Valor click del Hijo al Padre: @ValorClickHijo</p>
+
+@* <button class="btn btn-primary" @onclick="IncrementaClick">Click del Hijo</button> *@
+
+

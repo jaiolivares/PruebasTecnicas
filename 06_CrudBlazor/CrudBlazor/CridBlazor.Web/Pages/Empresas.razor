@@ -1,0 +1,98 @@
+﻿@page "/empresas"
+
+@using CurrieTechnologies.Razor.SweetAlert2
+@using CrudBlazor.Web.Interfaces
+
+@inject SweetAlertService Swal
+@inject IJSRuntime JsRuntime
+@inject IEmpresaService EmpresaService
+
+@code {
+
+    private List<CrudBlazor.Shared.Models.Empresa>? empresas;
+
+    protected override async Task OnInitializedAsync()
+    {
+        empresas = await EmpresaService.GetAllAsync();
+    }
+
+    private async Task EliminarEmpresa(int id)
+    {
+        var resultado = await Swal.FireAsync(new SweetAlertOptions
+            {
+                Title = "¿Estás seguro?",
+                Text = "¡No podrás deshacer esta acción!",
+                Icon = SweetAlertIcon.Warning,
+                ShowCancelButton = true,
+                ConfirmButtonText = "Sí, eliminar",
+                CancelButtonText = "Cancelar"
+            });
+
+        if (resultado.IsConfirmed)
+        {
+            // var eliminado = await EmpresaService.EliminarAsync(id);
+            var eliminado = true;
+
+            if (eliminado)
+            {
+                empresas = empresas!.FindAll(x => x.Id != id);
+            }
+
+            // if (await EmpresaService.EliminarAsync(id))
+            // {
+            //     empresas = await EmpresaService.GetAllAsync();
+            // }
+        }
+    }
+
+    private async Task EliminarEmpresaJs(int id)
+    {
+        bool confirmar = await JsRuntime.InvokeAsync<bool>("confirm", "¿Estás seguro de que deseas eliminar esta empresa?");
+        if (confirmar)
+        {
+            empresas = empresas!.FindAll(x => x.Id != id);
+        }
+    }
+
+
+}
+
+<h1>Empresa</h1>
+<a href="empresa" class="btn btn-primary">Nueva Empresa</a>
+
+@if (empresas == null)
+{
+    <p><em>Loagind</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Nombre</td>
+                <td>Actual</td>
+                <td>Fecha Inicio</td>
+                <td>Fecha Fin</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var empresa in empresas)
+            {
+                <tr>
+                    <td>@empresa.Id</td>
+                    <td>@empresa.Nombre</td>
+                    <td>@(empresa.Actual ? "Si" : "No")</td>
+                    <td>@empresa.FechaInicio.ToString("dd/MM/yyyy")</td>
+                    <td>@(empresa.FechaTermino?.ToString("dd/MM/yyyy") ?? "")</td>
+                    <td><a href="empresa/@empresa.Id" class="btn btn-secondary">Modificar</a></td>
+                    @* <td><button type="button" class="btn btn-danger" @onclick="(() => EliminarEmpresa(empresa.Id))">Eliminar</button></td> *@
+                    <td><a class="btn btn-danger" @onclick="(() => EliminarEmpresa(empresa.Id))">Eliminar</a></td>
+                    <td><a class="btn btn-danger" @onclick="(() => EliminarEmpresaJs(empresa.Id))">EliminarJS</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

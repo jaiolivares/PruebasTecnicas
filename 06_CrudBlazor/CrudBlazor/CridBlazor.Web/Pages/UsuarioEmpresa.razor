@@ -1,0 +1,26 @@
+﻿@page "/usuarioEmpresa"
+
+<h1>UsuarioEmpresa Padre</h1>
+<p>Valor click del Padre: @valorClick</p>
+<button class="btn btn-primary" @onclick="IncrementaClick">Click del Padre</button>
+
+<hr />
+<UsuarioEmpersaAsociar DelPadreAlHijo="valorClick" ValorClickHijo="RecibirClickHijo" />
+
+https://www.youtube.com/watch?v=UU4K4cpk2SE
+
+@code {
+    private int valorClick = 0;
+    private int valorClickDesdelHijo = 0;
+
+    private void IncrementaClick()
+    {
+        valorClick++;
+    }
+
+    void RecibirClickHijo(int dato)
+    {
+        valorClickDesdelHijo = dato;
+    }
+
+}
